@@ -11,8 +11,10 @@ function handlerSubmit(evt) {
   let getStep = Number(step.value);
   let getAmount = Number(amount.value);
 
-  for (let i = 0; i <= getAmount; i += 1) {
-    getDelay += getStep;
+  for (let i = 1; i <= getAmount; i += 1) {
+    if (i !== 1) {
+      getDelay += getStep;
+    }
 
     createPromise(i, getDelay)
       .then(({ position, delay }) => {
